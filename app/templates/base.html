@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if title %}
 
-    <title>{{ title }}Document</title>
+    <title>{{ title }} Document</title>
 
     {% else %}
     <title>Welcome to Microblog</title>
@@ -15,7 +15,9 @@
 </head>
 <body>
     <div>
-        Microblog: <a href="/index">Home</a>
+        Microblog: 
+        <a href="/index">Home</a>
+        <a href="/login">Login</a>
     </div>
     <hr>
     {% block content%}{%endblock%}
