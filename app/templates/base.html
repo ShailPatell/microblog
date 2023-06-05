@@ -13,13 +13,31 @@
     {% endif %}
 
 </head>
+
 <body>
     <div>
         Microblog: 
-        <a href="/index">Home</a>
-        <a href="/login">Login</a>
+        <a href="{{ url_for('index')}}">Home</a>
+        <a href="{{ url_for('login')}}">Login</a>
     </div>
+
     <hr>
+
+
+    <!-- "With" is a statement in Jinja that lets you define a variable. We defined messages bellow. -->
+    <!-- Messages calls the get_flashed_messages class, which pulls all flashed messages from the session and returns them. -->
+
+    {% with messages = get_flashed_messages() %}
+    <!--- The conditional just checks if there are any messages, if not it will skip the for loop that returns it.-->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li> {{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <!-- endwith will limit the scope of the variable, and will most likely need to be called in a HTML file.-->
+    {% endwith %}
     {% block content%}{%endblock%}
 </body>
 </html>
